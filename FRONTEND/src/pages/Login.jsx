@@ -10,7 +10,7 @@ function Login(){
     async function user_login() {
         console.log(login)
         console.log(senha)
-
+            try{
                 const api = await fetch("http://localhost:3000/login", {
                     method: "POST",
                     headers: {"content-Type":"application/json"},
@@ -31,7 +31,14 @@ function Login(){
                             if (dados.cargo === "Gestor"){
                                 navigate("/admin")
                             }
+                    }
+                    catch(err){
+                        console.error(err)
+                        setMensagem("Erro com servidor, fale com suporte")
+                    }
     }
+
+
   return(
       <div>
         <h1>ESTRELAR CONSULTORIA</h1>
@@ -43,7 +50,8 @@ function Login(){
         <input type="password" placeholder="Digite sua senha" onChange={(event)=>{setSenha(event.target.value)}}></input>
         <button onClick={user_login}>ENTRAR</button><br />
         <p className="mensagem_erro">{mensagem}</p>
-        <p>desenvolvido por:<p /> <p></p>Estrelar Consultoria (equipe de T.i)</p>
+        <p className="referencia">Desenvolvido por:</p>
+        <p >EQUIPE DE TI: ISABELY E MARCOS</p>
       </div>
   )
 };
