@@ -1,6 +1,7 @@
 import "./Painel_consultor.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import AbaManual from "./Abamanual";
 
 function Painel_consultor() {
   const { usuario } = useContext(AuthContext);
@@ -8,7 +9,7 @@ function Painel_consultor() {
 
   return (
     <div className="consultor-container">
-      {/* ============ SIDEBAR ============ */}
+      
       <aside className="consultor-sidebar">
         {/* Logo */}
         <div className="sidebar-logo">
@@ -46,7 +47,7 @@ function Painel_consultor() {
 
       </aside>
 
-      {/* ============ MAIN CONTENT ============ */}
+
       <main className="consultor-main">
         {/* Header */}
         <header className="consultor-header">
@@ -58,11 +59,11 @@ function Painel_consultor() {
           </h1>
         </header>
 
-        {/* Content */}
+        {/* ABAS */}
         <div className="consultor-content">
           {activeTab === "manual" && (
             <section className="content-section">
-              {<h1>Oi, teste!</h1>}
+              <AbaManual/>
             </section>
           )}
 
@@ -81,7 +82,7 @@ function Painel_consultor() {
             <section className="content-section">
                <div className="em_desenvolvimento">
                 <span className="em_des_badge">Em Desenvolvimento</span>
-                <p className="em_des_desc">Está sendo desenvolvido para oferecer a melhor experiência. para Sugestoes fale com a isabelly ou Marcos...</p>
+                <p className="em_des_desc"></p>
 </div>
             </section>
           )}
